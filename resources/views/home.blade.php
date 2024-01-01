@@ -20,6 +20,15 @@
                             <a class="nav-link" href="{{ route('obat') }}">Obat</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('poli') }}">Daftar Poli</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dokter') }}">Daftar Dokter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('jadwalperiksa') }}">Jadwal Periksa</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('periksa') }}">Periksa</a>
                         </li>
                         <li class="nav-item">

@@ -40,6 +40,18 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="role" name="role">
+                                    <option value="admin">Admin</option>
+                                    <option value="dokter">Dokter</option>
+                                    {{-- <option value="pasien">Pasien</option> --}}
+                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
