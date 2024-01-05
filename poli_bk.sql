@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jan 2024 pada 10.25
+-- Waktu pembuatan: 05 Jan 2024 pada 03.33
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -55,6 +55,14 @@ CREATE TABLE `detail_periksa` (
   `id_periksa` bigint(20) UNSIGNED NOT NULL,
   `id_obat` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `detail_periksa`
+--
+
+INSERT INTO `detail_periksa` (`id`, `id_periksa`, `id_obat`) VALUES
+(2, 4, 1),
+(3, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -146,7 +154,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2023_12_25_031719_detail_periksa', 1),
 (13, '2023_12_28_085322_add_role_to_users_table', 2),
 (14, '2024_01_01_042253_add_created_at_to_pasien_table', 3),
-(15, '2024_01_01_065840_add_created_at_to_daftar_poli__table', 4);
+(15, '2024_01_01_065840_add_created_at_to_daftar_poli__table', 4),
+(16, '2024_01_04_121953_add_created_at_to_periksa_table', 5);
 
 -- --------------------------------------------------------
 
@@ -166,7 +175,8 @@ CREATE TABLE `obat` (
 --
 
 INSERT INTO `obat` (`id`, `nama_obat`, `kemasan`, `harga`) VALUES
-(1, 'obat1update', 'plastikupdate', 1000);
+(1, 'obat1update', 'plastikupdate', 1000),
+(3, 'bodrek xin', 'daun pisang', 1000000);
 
 -- --------------------------------------------------------
 
@@ -216,8 +226,17 @@ CREATE TABLE `periksa` (
   `id_daftar_poli` bigint(20) UNSIGNED NOT NULL,
   `tgl_periksa` datetime NOT NULL,
   `catatan` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `biaya_periksa` int(11) NOT NULL
+  `biaya_periksa` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `periksa`
+--
+
+INSERT INTO `periksa` (`id`, `id_daftar_poli`, `tgl_periksa`, `catatan`, `biaya_periksa`, `created_at`, `updated_at`) VALUES
+(4, 1, '2024-01-04 12:21:21', 'tes', 1151000, '2024-01-04 05:21:21', '2024-01-04 05:21:21');
 
 -- --------------------------------------------------------
 
@@ -390,7 +409,7 @@ ALTER TABLE `daftar_poli`
 -- AUTO_INCREMENT untuk tabel `detail_periksa`
 --
 ALTER TABLE `detail_periksa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `dokter`
@@ -414,13 +433,13 @@ ALTER TABLE `jadwal_periksa`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `pasien`
@@ -432,7 +451,7 @@ ALTER TABLE `pasien`
 -- AUTO_INCREMENT untuk tabel `periksa`
 --
 ALTER TABLE `periksa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
