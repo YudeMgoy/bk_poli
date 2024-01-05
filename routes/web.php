@@ -46,9 +46,9 @@ Route::get('/poli',[App\Http\Controllers\PoliController::class, 'index'])->name(
 Route::get('/poli/add',function(){return view("tambahpoli");})->name('tambahpoli');
 Route::post('/poli/storepoli',[App\Http\Controllers\PoliController::class, 'store'])->name('storepoli');
 
-Route::get('/dokter/periksa', function(){
-    return view('periksa');
-})->name('periksa');;
+Route::get('/dokter/periksa', [App\Http\Controllers\PeriksaController::class, 'index'])->name('periksa');
+Route::get('/dokter/periksa/add/{id}', [App\Http\Controllers\PeriksaController::class, 'Add'])->name('addperiksa');;
+Route::post('/dokter/periksa/store', [App\Http\Controllers\PeriksaController::class, 'Store'])->name('storeperiksa');;
 
 Route::get('/dokter/riwayatpasien', function(){
     return view('riwayat_pasien');

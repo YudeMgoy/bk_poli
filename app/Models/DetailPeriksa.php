@@ -5,24 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-class DaftarPoli extends Model
+class DetailPeriksa extends Model
 {
     use HasFactory;
-
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'daftar_poli';
+    protected $table = 'detail_periksa';
 
-    public function jadwal(): BelongsTo
+    public function obat(): BelongsTo
     {
-        return $this->belongsTo(JadwalPeriksa::class, "id_jadwal");
-    }
-
-    public function pasien(): BelongsTo
-    {
-        return $this->belongsTo(Pasien::class, "id_pasien");
+        return $this->belongsTo(Obat::class, 'id_obat');
     }
 }
